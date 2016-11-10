@@ -20,7 +20,9 @@ import com.yp.readermaster.fragment.VideoFragment;
 import com.yp.readermaster.fragment.ZhihuFragment;
 
 import butterknife.BindView;
-
+/*
+*  create by 2016
+* */
 public class MainActivity extends RxAppCompatBaseActivity{
 
     @BindView(R.id.toolbar)
@@ -176,7 +178,7 @@ public class MainActivity extends RxAppCompatBaseActivity{
             }
             transaction.addToBackStack(null);
             transaction.commit();
-           // updateToolbar();
+           updateToolbar();
         }
 
         @Override
