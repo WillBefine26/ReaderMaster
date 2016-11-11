@@ -11,6 +11,7 @@ import com.yp.readermaster.base.RxLazyBaseFragment;
  * Created by
  * Administrator WangDongxu
  * on 2016/10/31 0031 19:58
+ * give me five
  */
 
 public class NewsFragment extends RxLazyBaseFragment{
