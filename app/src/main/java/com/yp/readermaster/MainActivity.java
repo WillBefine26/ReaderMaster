@@ -63,10 +63,9 @@ public class MainActivity extends RxAppCompatBaseActivity{
     }
 
     private void initNavigationBar() {
-        Log.d("168", "initNavigationBar: 1111");
         mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
-        Log.d("168", "initNavigationBar: 2222");
         mBottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
+        // 添加按钮 图标 文字 并设置颜色
         mBottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.main_icon_news, TAB[0]).setActiveColorResource(TAB_COLOR[0]))
                 .addItem(new BottomNavigationItem(R.mipmap.main_icon_vedio, TAB[1]).setActiveColorResource(TAB_COLOR[1]))
                 .addItem(new BottomNavigationItem(R.mipmap.main_icon_zhihu, TAB[2]).setActiveColorResource(TAB_COLOR[2]))
@@ -74,18 +73,8 @@ public class MainActivity extends RxAppCompatBaseActivity{
                 .setFirstSelectedPosition(0)
                 .initialise();
         mBottomNavigationBar.setTabSelectedListener(new MyTabListener());
-        Log.d("168", "initNavigationBar: 33333");
         setDefaultFragment();
     }
-
-    private void setDefaultFragment() {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        mNewsFragment = NewsFragment.newInstance("资讯");
-        transaction.replace(R.id.layFrame, mNewsFragment);
-        transaction.commit();
-    }
-
 
     @Override
     protected void initToolBar() {
@@ -100,6 +89,14 @@ public class MainActivity extends RxAppCompatBaseActivity{
             mActionBar.setDisplayUseLogoEnabled(false);
             mActionBar.setDisplayShowTitleEnabled(true);
         }
+    }
+
+    private void setDefaultFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        mNewsFragment = NewsFragment.newInstance("资讯");
+        transaction.replace(R.id.layFrame, mNewsFragment);
+        transaction.commit();
     }
 
     @Override
@@ -118,11 +115,6 @@ public class MainActivity extends RxAppCompatBaseActivity{
 
         @Override
         public void onTabSelected(int position) {
-
-        }
-
-        @Override
-        public void onTabUnselected(int position) {
             TITLE = TAB[position];
             mToolBarBG = TAB_COLOR[position];
             mToolBarBG = TAB_COLOR[position];
@@ -178,7 +170,12 @@ public class MainActivity extends RxAppCompatBaseActivity{
             }
             transaction.addToBackStack(null);
             transaction.commit();
-           updateToolbar();
+            updateToolbar();
+        }
+
+        @Override
+        public void onTabUnselected(int position) {
+
         }
 
         @Override
