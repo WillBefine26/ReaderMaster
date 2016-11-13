@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
@@ -183,7 +182,7 @@ public class MainActivity extends RxAppCompatBaseActivity{
 
         }
     }
-
+    // 更新Toolbar颜色，随navigationBar 而动
     private void updateToolbar() {
         mToolbar.setTitle(TITLE);
         mToolbar.setBackgroundResource(mToolBarBG);
