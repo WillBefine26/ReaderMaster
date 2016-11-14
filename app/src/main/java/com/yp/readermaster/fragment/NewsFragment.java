@@ -1,9 +1,13 @@
 package com.yp.readermaster.fragment;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 
+import com.flyco.tablayout.SlidingTabLayout;
 import com.yp.readermaster.R;
 import com.yp.readermaster.base.RxLazyBaseFragment;
+
+import butterknife.BindView;
 
 
 /**
@@ -15,7 +19,10 @@ import com.yp.readermaster.base.RxLazyBaseFragment;
  */
 
 public class NewsFragment extends RxLazyBaseFragment{
-
+    @BindView(R.id.sliding_tabs)
+    SlidingTabLayout mSlidingTabs;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
     public static NewsFragment newInstance(String param1) {
         NewsFragment fragment = new NewsFragment();
         Bundle args = new Bundle();

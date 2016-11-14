@@ -51,4 +51,10 @@ dependencies {
     //沉侵式
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
     compile 'com.android.support:palette-v7:24.2.1'
+    // tablayout
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
+    //swiperefreshalayout
+    compile 'com.demievil.library:refreshlayout:1.0.0@aar'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 }
