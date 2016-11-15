@@ -2,6 +2,7 @@ package com.yp.readermaster.config;
 
 import com.yp.readermaster.base.RxLazyBaseFragment;
 import com.yp.readermaster.fragment.NewsItemFragment;
+import com.yp.readermaster.fragment.VideoItemFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,5 +28,13 @@ public class FragmentFactory {
     }
 
     //视频fragment
+    public static RxLazyBaseFragment creatVedioFragment(String tag) {
+        RxLazyBaseFragment fragment = mCache.get(tag);
+        if (fragment == null) {
+            fragment = new VideoItemFragment();
+            mCache.put(tag, fragment);
+        }
+        return fragment;
+    }
 
 }

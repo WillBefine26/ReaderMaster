@@ -5,7 +5,12 @@ import android.support.v4.view.ViewPager;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.yp.readermaster.R;
+import com.yp.readermaster.adapter.NewsPagerAdapter;
 import com.yp.readermaster.base.RxLazyBaseFragment;
+import com.yp.readermaster.utils.ConstantUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -23,6 +28,10 @@ public class NewsFragment extends RxLazyBaseFragment{
     SlidingTabLayout mSlidingTabs;
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
+
+    private List<String> mTabTitleList;
+    private NewsPagerAdapter mNewsPagerAdapter;
+
     public static NewsFragment newInstance(String param1) {
         NewsFragment fragment = new NewsFragment();
         Bundle args = new Bundle();
@@ -38,6 +47,19 @@ public class NewsFragment extends RxLazyBaseFragment{
 
     @Override
     protected void finishCreateView(Bundle savedInstanceState) {
+        if (mTabTitleList == null || mTabTitleList.isEmpty()) {
+            mTabTitleList = new ArrayList<>();
+            ConstantUtils.ENewsType[] eNewsTypes = ConstantUtils.ENewsType.values();
+            if (eNewsTypes.length > 0) {
+                for (int i=0;i<eNewsTypes.length;i++) {
+                    mTabTitleList.add(eNewsTypes[i].getTitle());
+                }
+            }
+        }
+        mNewsPagerAdapter = new NewsPagerAdapter(getChildFragmentManager(), mTabTitleList);
+        mViewPager.setOffscreenPageLimit(8);
+        mViewPager.setAdapter(mNewsPagerAdapter);
+        mSlidingTabs.setViewPager(mViewPager);
 
     }
 

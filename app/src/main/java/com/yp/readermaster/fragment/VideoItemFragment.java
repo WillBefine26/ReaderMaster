@@ -12,20 +12,17 @@ import butterknife.BindView;
 /**
  * Created by
  * Administrator WangDongxu
- * on 2016/11/14 0014 15:02
- * 当前类注释：新闻页子条目
+ * on 2016/11/15 0015 10:52
  */
 
-public class NewsItemFragment extends RxLazyBaseFragment {
-
+public class VideoItemFragment extends RxLazyBaseFragment {
     @BindView(R.id.swipeRecyclerView)
     SwipeRecyclerView mSwipeRecyclerView;
-
-    private ConstantUtils.ENewsType mENewsType;
+    private ConstantUtils.LolType mLolType;
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_news_item;
+        return R.layout.fragment_video_item;
     }
 
     @Override
@@ -38,7 +35,7 @@ public class NewsItemFragment extends RxLazyBaseFragment {
 
     }
 
-    public void setNewsType(ConstantUtils.ENewsType type) {
-        mENewsType = type;
+    public void setLolType(ConstantUtils.LolType lolType) {
+        mLolType = lolType;
     }
 }
